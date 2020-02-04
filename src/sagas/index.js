@@ -1,8 +1,8 @@
 import { all } from 'redux-saga/effects';
-import todolistSaga from '../action/todolist';
+import ContentSaga from './content';
 
 function* rootSaga() {
-  yield all([todolistSaga()]);
+  yield all([ContentSaga()]);
 }
 
 export default rootSaga;
