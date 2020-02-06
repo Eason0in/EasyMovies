@@ -47,7 +47,7 @@ const Main = () => {
   const todoList = useSelector(state => state.todoList);
   const [newTodo, setNewTodo] = useState('');
   return (
-    <div>
+    <div data-testid="todolistBlock">
       <span>{`代辦事項數：${todoList.length}`}</span>
       <div>
         <input

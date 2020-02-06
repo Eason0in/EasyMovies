@@ -1,29 +1,9 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import { Provider } from 'react-redux';
-import { Switch, Route, Link, HashRouter } from 'react-router-dom';
-import Content from './component/Content';
-import TodoList from './component/TodoList';
-import List from './component/List';
+import { HashRouter } from 'react-router-dom';
 import store from './store';
-
-const Main = () => (
-  <div>
-    <ul>
-      <li>
-        <Link to="/">首頁</Link>
-      </li>
-      <li>
-        <Link to="/todolist">待辦事項</Link>
-      </li>
-    </ul>
-    <Switch>
-      <Route exact path="/" component={Content} />
-      <Route path="/todolist" component={TodoList} />
-      <Route path="/list/:taskName" component={List} />
-    </Switch>
-  </div>
-);
+import Main from './component/Main';
 
 ReactDom.render(
   <Provider store={store}>
