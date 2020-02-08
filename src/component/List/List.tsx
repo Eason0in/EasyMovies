@@ -5,7 +5,7 @@ interface ListProps {
   match: any;
 }
 
-const List: FC<ListProps> = props => {
+const List = (props: ListProps) => {
   const { match } = props;
   return <div>{JSON.stringify(match)}</div>;
 };

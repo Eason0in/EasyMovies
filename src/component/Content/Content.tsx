@@ -8,7 +8,7 @@ interface ContentState {
 
 const Content = () => {
   const dispatch = useDispatch();
-  const data = useSelector<ContentState>(state => state.data);
+  const data = useSelector((state: ContentState) => state.data);
   return (
     <div data-testid="contentBlock">
       <div data-testid="contentData">
