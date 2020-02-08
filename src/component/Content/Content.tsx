@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchDataBegin } from '../../action/todolist';
 
+interface ContentState {
+  data: {};
+}
+
 const Content = () => {
   const dispatch = useDispatch();
-  const data = useSelector(state => state.data);
+  const data = useSelector<ContentState>(state => state.data);
   return (
     <div data-testid="contentBlock">
       <div data-testid="contentData">

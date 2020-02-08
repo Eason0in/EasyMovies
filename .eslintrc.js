@@ -20,6 +20,11 @@ module.exports = {
       pragma: 'React',
       version: 'detect',
     },
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -29,10 +34,11 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react'],
+  plugins: ['react', 'typescript'],
   rules: {
     semi: ['error', 'never'],
     'linebreak-style': ['error', 'windows'],
     'no-console': 'off',
+    'react/jsx-filename-extension': 'off',
   },
 };

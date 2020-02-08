@@ -5,7 +5,7 @@ const initState = {
   data: {},
 };
 
-const todoReducer = (state = initState, action) => {
+const todoReducer = (state = initState, action: any) => {
   switch (action.type) {
     case actions.ADD_TODO:
       return {

@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import PropTypes from 'prop-types';
 
-const List = props => {
+interface ListProps {
+  match: any;
+}
+
+const List: FC<ListProps> = props => {
   const { match } = props;
   return <div>{JSON.stringify(match)}</div>;
 };

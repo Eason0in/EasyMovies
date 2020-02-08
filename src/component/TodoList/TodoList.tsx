@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
 import { addTodo } from '../../action/todolist';
 import { Link } from 'react-router-dom';
 
-const Task = props => {
+interface TaskProps {
+  task: string;
+}
+
+interface TodoListState {
+  todoList: string[];
+}
+
+const Task = (props: TaskProps) => {
   const { task } = props;
   return (
     <li>
@@ -13,38 +20,29 @@ const Task = props => {
   );
 };
 
-Task.propTypes = {
-  task: PropTypes.string,
-};
-
-Task.defaultProps = {
-  task: '',
-};
-
-const TodoList = () => {
-  const todoList = useSelector(state => state.todoList);
-  return todoList.map(task => (
+const TodoListPage = () => {
+  const todoList = useSelector((state: TodoListState) => state.todoList);
+  const todoListElm = todoList.map((task: string) => (
     <ul key={task}>
       <Task task={task} />
     </ul>
   ));
+  return (
+    <div>
+      <div>其他內容什麼的</div>
+      {todoListElm}
+    </div>
+  );
 };
 
-const TodoListPage = () => (
-  <div>
-    <div>其他內容什麼的</div>
-    <TodoList />
-  </div>
-);
-
 const CurrentTask = () => {
-  const todoList = useSelector(state => state.todoList);
+  const todoList = useSelector((state: TodoListState) => state.todoList);
   return <div>{`下一件事要做：${todoList[0]}`}</div>;
 };
 
 const Main = () => {
   const dispatch = useDispatch();
-  const todoList = useSelector(state => state.todoList);
+  const todoList = useSelector((state: TodoListState) => state.todoList);
   const [newTodo, setNewTodo] = useState('');
   return (
     <div data-testid="todolistBlock">
